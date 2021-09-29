@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coding Quiz</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <div class="scores">
+            <a href="highscores.html">View Highscores</a>
+        </div>
+
+        <div class="timer">
+            Time: <span id ="time">0:00</span>
+        </div>
+
+        <div class="wrapper">
+            <div id="start-screen" class="start">
+                <h1>Fundamentals of Coding Quiz</h1>
+                <h3>Do you have what it takes to be a professional coder?</h3>
+                <p>
+                    If you can answer the following questions before the timer runs out, then <em>maybe</em> you have a chance!<br>
+                    Keep in mind that each incorrect answer will result in a loss of 10 seconds and lower your score.
+                </p>
+                <button id="start-btn">START GAME</button>
+            </div>
+
+            <div id="questions" class="hide">
+                <h2 id="question-title"></h2>
+                <div id="choices" class="choices">                
+                </div>
+            </div>
+
+            <div id="end-screen" class="hide">
+                <h2>You finished with time to spare!</h2>
+                <p>
+                    Your final score is <span id="final-score"></span>
+                </p>
+                <p>
+                    Enter initials: <input type="text" id="initials" max"3" />
+                    <button id="submit">SUBMIT</button>
+                </p>
+            </div>
+
+            <div id="feedback" class="feedback hide"></div>
+        </div>
+
+        <script src="./assets/js/questions.js"></script>
+        <script src="./assets/js/logic.js"></script>        
+    </body>
+</html>
