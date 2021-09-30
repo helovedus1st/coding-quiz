@@ -7,7 +7,6 @@ var startBtn = document.querySelector('#start-btn');
 var questionElement = document.querySelector('#questions');
 var timerElement = document.querySelector('#time');
 var questionChoices = document.querySelector('#choices');
-var choicesDiv = document.querySelector('#choices-div');
 
 
 // start game
@@ -28,13 +27,19 @@ function getCurrentQuestion() {
     titleElement.textContent = currentQuestion.title;
     questionChoices.textContent = '';
 
+    // will identify the number of questions and then place each question in the desired location
+    // identify number of questions and loop until queestion has been placed
     for(var i = 0; i < currentQuestion.choice.length; i++) {
+        // create button
         let choicesButton = document.createElement('button');
+        // assign CSS styling to buttons
         choicesButton.setAttribute('class', 'choices');
+        // place the question
         choicesButton.setAttribute('value', currentQuestion.choice[i]);
-
+        // correct the numbering so the questions start with a 1
         choicesButton.textContent = i + 1 + ". " + currentQuestion.choice[i];
-        questionElement.appendChild(choices);
+        // append the choices div and place the questions button there
+        questionChoices.appendChild(choicesButton);
 
     }
 }
