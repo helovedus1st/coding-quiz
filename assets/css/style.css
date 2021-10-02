@@ -2,7 +2,7 @@
     display: none;
 }
 
-.choices {
+.buttons {
     display: flex;
     background-color: transparent;
     color: black;
@@ -15,7 +15,7 @@
     transition: 0.2s;
 }
 
-.choices:hover {
+.buttons:hover {
     background-color: black;
     color: white;
 }

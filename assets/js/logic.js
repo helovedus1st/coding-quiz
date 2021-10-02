@@ -1,6 +1,7 @@
 var time = questions.length * 15;
 var timerId;
 var questionIndex = 0;
+var score = 0;
 
 
 var startBtn = document.querySelector('#start-btn');
@@ -20,6 +21,25 @@ function startGame() {
     getCurrentQuestion();
 }
 
+function checkAnswer(event) {
+    var answer = event.target.value
+    var correctAnswer = questions[questionIndex].answer;
+    console.log(answer)
+    if (questionIndex + 1 === questions.length) {
+        console.log('game over');
+    }
+    if (answer === correctAnswer) {
+        score++;
+        console.log(score)
+        questionIndex++;
+        console.log(questionIndex)
+        getCurrentQuestion();
+    } 
+    questionIndex++;
+    console.log(questionIndex)
+    getCurrentQuestion();
+}
+
 function getCurrentQuestion() {
     var currentQuestion = questions[questionIndex];
     console.log(currentQuestion);
@@ -33,7 +53,8 @@ function getCurrentQuestion() {
         // create button
         let choicesButton = document.createElement('button');
         // assign CSS styling to buttons
-        choicesButton.setAttribute('class', 'choices');
+        choicesButton.setAttribute('class', 'buttons');
+        choicesButton.addEventListener('click', checkAnswer)
         // place the question
         choicesButton.setAttribute('value', currentQuestion.choice[i]);
         // correct the numbering so the questions start with a 1
@@ -43,5 +64,7 @@ function getCurrentQuestion() {
 
     }
 }
+
+
 
 startBtn.addEventListener('click', startGame)
