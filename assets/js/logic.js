@@ -19,6 +19,7 @@ function startGame() {
     //show questions
     questionElement.removeAttribute('class');
     getCurrentQuestion();
+    countdown();
 }
 
 function checkAnswer(event) {
@@ -26,7 +27,10 @@ function checkAnswer(event) {
     var correctAnswer = questions[questionIndex].answer;
     console.log(answer)
     if (questionIndex + 1 === questions.length) {
+        console.log(correctAnswer);
         console.log('game over');
+        window.location.replace("highscores.html");
+
     }
     if (answer === correctAnswer) {
         score++;
@@ -36,6 +40,7 @@ function checkAnswer(event) {
         getCurrentQuestion();
     } 
     questionIndex++;
+    time -= 10;
     console.log(questionIndex)
     getCurrentQuestion();
 }
@@ -65,6 +70,19 @@ function getCurrentQuestion() {
     }
 }
 
+function countdown(){
+    var timeLeft = setInterval(() => {
+        if (time <= 0) {
+            alert('time up');
+            window.location.replace("highscores.html")
+            clearInterval(timeLeft);
+        }
+        time--
+        timerElement.textContent = time + " seconds remaining";        
+    }, 1000);
+
+
+}
 
 
 startBtn.addEventListener('click', startGame)
